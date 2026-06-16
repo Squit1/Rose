@@ -1,0 +1,128 @@
+nohup: ignoring input
+/home/Eren/.local/lib/python3.10/site-packages/torch_xla/__init__.py:202: UserWarning: `tensorflow` can conflict with `torch-xla`. Prefer `tensorflow-cpu` when using PyTorch/XLA. To silence this warning, `pip uninstall -y tensorflow && pip install tensorflow-cpu`. If you are in a notebook environment such as Colab or Kaggle, restart your notebook runtime afterwards.
+  warnings.warn(
+✅ PyTorch XLA modules imported (runtime NOT initialized)
+⚠️  XLA runtime will initialize inside xmp.spawn()
+============================================================
+TPU v5e-8 TRAINING SCRIPT
+============================================================
+
+============================================================
+TPU v5e-8 OPTIMIZED SCRIPT BAŞLATILIYOR
+============================================================
+DEBUG: main fonksiyonu BAŞLADI - TPU v5e-8 Optimized.
+2026-05-12 21:39:11 - WARNING - [TPU-Setup] - Config dosyası bulunamadı (/home/Eren/config.json). Varsayılan ModelConfig kullanılıyor.
+WARNING:tpu_v5e8_setup:Config dosyası bulunamadı (/home/Eren/config.json). Varsayılan ModelConfig kullanılıyor.
+✅ Donanım Tespiti (Varsayım): TPU v5e
+🚀 TPU v5e için optimizasyonlar aktive ediliyor...
+🚀 TPU v5e-8 optimizasyonları aktif edildi!
+   • bfloat16: True
+   • Batch size (per core): 1
+   • Gradient accumulation: 16
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - Çalışma modu ayarlandı: TRAIN
+INFO:tpu_v5e8_setup:Çalışma modu ayarlandı: TRAIN
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - ✅ XLA modülü başarıyla yüklendi
+INFO:tpu_v5e8_setup:✅ XLA modülü başarıyla yüklendi
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - ✅ TPU environment variables ayarlandı (PJRT_DEVICE=TPU)
+INFO:tpu_v5e8_setup:✅ TPU environment variables ayarlandı (PJRT_DEVICE=TPU)
+2026-05-12 21:39:11 - INFO - [TPU-Setup] -    └─ TPU tespit edildi (World Size: 8)
+INFO:tpu_v5e8_setup:   └─ TPU tespit edildi (World Size: 8)
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - 🔍 TPU başlatma modu belirleniyor...
+INFO:tpu_v5e8_setup:🔍 TPU başlatma modu belirleniyor...
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - ================================================================================
+INFO:tpu_v5e8_setup:================================================================================
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - 🚀 TPU MULTIPROCESSING BAŞLATILIYOR
+INFO:tpu_v5e8_setup:🚀 TPU MULTIPROCESSING BAŞLATILIYOR
+2026-05-12 21:39:11 - INFO - [TPU-Setup] -    └─ Hedef Core: 8
+INFO:tpu_v5e8_setup:   └─ Hedef Core: 8
+2026-05-12 21:39:11 - INFO - [TPU-Setup] -    └─ Mod: TRAIN
+INFO:tpu_v5e8_setup:   └─ Mod: TRAIN
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - ================================================================================
+INFO:tpu_v5e8_setup:================================================================================
+WARNING:root:Unsupported nprocs (8), ignoring...
+2026-05-12 21:39:11 - WARNING - [TPU-Setup] - ================================================================================
+WARNING:tpu_v5e8_setup:================================================================================
+2026-05-12 21:39:11 - WARNING - [TPU-Setup] - ⚠️ TPU ERİŞİM HATASI — CPU moduna geçiliyor...
+WARNING:tpu_v5e8_setup:⚠️ TPU ERİŞİM HATASI — CPU moduna geçiliyor...
+2026-05-12 21:39:11 - WARNING - [TPU-Setup] -    └─ Hata: Bad StatusOr access: UNKNOWN: TPU initialization failed: open(/dev/accel0): Operation not permitted: Operation not permitted; Couldn't open device: /d
+WARNING:tpu_v5e8_setup:   └─ Hata: Bad StatusOr access: UNKNOWN: TPU initialization failed: open(/dev/accel0): Operation not permitted: Operation not permitted; Couldn't open device: /d
+2026-05-12 21:39:11 - WARNING - [TPU-Setup] - ================================================================================
+WARNING:tpu_v5e8_setup:================================================================================
+
+============================================================
+🔍 [Rank 0] _mp_fn BAŞLADI
+============================================================
+✅ [Rank 0] XLA import başarılı
+❌ [Rank 0] TPU başlatma hatası: Bad StatusOr access: UNKNOWN: TPU initialization failed: open(/dev/accel2): Operation not permitted: Operation not permitted; Couldn't open device: /dev/accel2; [/dev/accel2] 
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/concurrent/futures/process.py", line 246, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/usr/lib/python3.10/concurrent/futures/process.py", line 205, in _process_chunk
+    return [fn(*args) for args in chunk]
+  File "/usr/lib/python3.10/concurrent/futures/process.py", line 205, in <listcomp>
+    return [fn(*args) for args in chunk]
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/runtime.py", line 95, in wrapper
+    return fn(*args, **kwargs)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/_internal/pjrt.py", line 59, in _run_thread_per_device
+    initializer_fn(local_rank, local_world_size)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/runtime.py", line 95, in wrapper
+    return fn(*args, **kwargs)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/_internal/pjrt.py", line 125, in initialize_multiprocess
+    devices = xm.get_xla_supported_devices()
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/core/xla_model.py", line 99, in get_xla_supported_devices
+    devices = torch_xla._XLAC._xla_get_devices()
+RuntimeError: Bad StatusOr access: UNKNOWN: TPU initialization failed: open(/dev/accel0): Operation not permitted: Operation not permitted; Couldn't open device: /dev/accel0; [/dev/accel0] 
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/Eren/Rose/train_only.py", line 4851, in main
+    xmp.spawn(
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/runtime.py", line 95, in wrapper
+    return fn(*args, **kwargs)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/distributed/xla_multiprocessing.py", line 38, in spawn
+    return pjrt.spawn(fn, nprocs, start_method, args)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/_internal/pjrt.py", line 214, in spawn
+    run_multiprocess(spawn_fn, start_method=start_method)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/runtime.py", line 95, in wrapper
+    return fn(*args, **kwargs)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/_internal/pjrt.py", line 174, in run_multiprocess
+    replica_results = list(
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/_internal/pjrt.py", line 175, in <genexpr>
+    itertools.chain.from_iterable(
+  File "/usr/lib/python3.10/concurrent/futures/process.py", line 575, in _chain_from_iterable_of_lists
+    for element in iterable:
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+RuntimeError: Bad StatusOr access: UNKNOWN: TPU initialization failed: open(/dev/accel0): Operation not permitted: Operation not permitted; Couldn't open device: /dev/accel0; [/dev/accel0] 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/Eren/Rose/train_only.py", line 4536, in _mp_fn
+    current_device = xm.xla_device()
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/core/xla_model.py", line 212, in xla_device
+    return runtime.xla_device(n, devkind)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/runtime.py", line 95, in wrapper
+    return fn(*args, **kwargs)
+  File "/home/Eren/.local/lib/python3.10/site-packages/torch_xla/runtime.py", line 124, in xla_device
+    return torch.device(torch_xla._XLAC._xla_get_default_device())
+RuntimeError: Bad StatusOr access: UNKNOWN: TPU initialization failed: open(/dev/accel2): Operation not permitted: Operation not permitted; Couldn't open device: /dev/accel2; [/dev/accel2] 
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - ================================================================================
+INFO:tpu_v5e8_setup:================================================================================
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - PROGRAM TAMAMLANDI
+INFO:tpu_v5e8_setup:PROGRAM TAMAMLANDI
+2026-05-12 21:39:11 - INFO - [TPU-Setup] - ================================================================================
+INFO:tpu_v5e8_setup:================================================================================
+============================================================
+TPU v5e-8 SCRIPT TAMAMLANDI
+============================================================
