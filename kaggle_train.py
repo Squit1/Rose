@@ -1,3 +1,7 @@
+import pyarrow
+import importlib
+importlib.reload(pyarrow)
+
 import os
 HOME = '/kaggle/working'
 os.environ['HOME'] = HOME
