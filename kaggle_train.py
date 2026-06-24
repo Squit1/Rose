@@ -2,6 +2,10 @@ import os
 HOME = '/kaggle/working'
 os.environ['HOME'] = HOME
 
+import pyarrow
+import importlib
+importlib.reload(pyarrow)
+
 # === HÜCRE 1 ===
 import os
 HOME = os.path.expanduser("~")
